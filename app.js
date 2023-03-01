@@ -13,6 +13,7 @@ const clearBtn = document.querySelector(".clear-items-btn");
 // addEventListener
 form.addEventListener("submit", addItem);
 clearBtn.addEventListener("click", clearAll)
+window.addEventListener("DOMContentLoaded", setupItem)
 
 // edit option
 let editElement;
@@ -26,21 +27,7 @@ function addItem(e) {
   let id = new Date().getTime().toString();
 
   if (value && !editFlag) {
-    let setinput = document.createElement("div");
-    setinput.classList.add("article");
-    let attId = document.createAttribute("data-id");
-    attId.value = id;
-    setinput.setAttributeNode(attId);
-    setinput.innerHTML = `<p class="grocery-item">${value}</p>
-    <div class="btn-container">
-        <button type="button" class="edit-btn"><i class="fas fa-edit"></i></button>
-        <button type="button" class="delete-btn"><i class="fas fa-trash"></i></button>
-    </div>`;
-    const deleteBtn = setinput.querySelector(".delete-btn")
-    const editBtn = setinput.querySelector(".edit-btn")
-    deleteBtn.addEventListener("click",deleteItem)
-    editBtn.addEventListener("click",editItem)
-    list.append(setinput)
+    createItem(id,value)
     // alert success
     displayAlert("item added to the list", "success")
     // list visible
@@ -91,17 +78,17 @@ function deleteItem(e) {
         
     }
     displayAlert("item removed from the list", "danger")
-    backDefault()
     removeFromLocalStorage(id)
+    backDefault()
 }
 // clear ALL
 function clearAll() {
     
     list.innerHTML = ""
-    displayAlert("List empty", "danger")
     clearItem.classList.remove("clear-items-visible")
-    backDefault()
+    displayAlert("List empty", "danger")
     localStorage.removeItem("liste")
+    backDefault()
 }
 
 // backtoDefault
@@ -155,5 +142,38 @@ function editLocalStorage(id,value) {
         return item
     })
     localStorage.setItem("liste", JSON.stringify(items))
+
+}
+// items show when the page open..
+
+function setupItem(id,value) {
+  let items = localStorage.getItem("liste") ? JSON.parse(localStorage.getItem("liste")) : [];
+  if(items.length > 0) {
+items.forEach(function(item) {
+  createItem(item.id,item.value)
+})
+list.classList.add("show-list")
+clearItem.classList.add("clear-items-visible")
+  }
+  
+}
+// create Item
+function createItem(id,value) {
+  let setinput = document.createElement("div");
+    setinput.classList.add("article");
+    // let attId = document.createAttribute("data-id");
+    // attId.value = id;
+    // setinput.setAttributeNode(attId);
+    setinput.setAttribute("data-id", id)
+    setinput.innerHTML = `<p class="grocery-item">${value}</p>
+    <div class="btn-container">
+        <button type="button" class="edit-btn"><i class="fas fa-edit"></i></button>
+        <button type="button" class="delete-btn"><i class="fas fa-trash"></i></button>
+    </div>`;
+    const deleteBtn = setinput.querySelector(".delete-btn")
+    const editBtn = setinput.querySelector(".edit-btn")
+    deleteBtn.addEventListener("click",deleteItem)
+    editBtn.addEventListener("click",editItem)
+    list.append(setinput)
 
 }

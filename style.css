@@ -169,3 +169,25 @@ section .title h3 {
     font-size: 24px;
     transition: all 325ms linear;
 }
+@media (max-width:500px) {
+    .btn {
+        font-size: 10px;
+        flex: 1;
+        
+    }
+    .btn span {
+        display: none;
+    }
+    .btn:after {
+        content: "S";
+        color: white;
+    }
+
+    .form #input {
+        flex: 10;
+        
+    }
+        
+        
+    
+}
