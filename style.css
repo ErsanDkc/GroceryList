@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(241, 245, 248);
+    font-family: 'Open Sans', sans-serif;
+    
+}
+section {
+    margin-top: 120px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 360px;
+    box-shadow: 1px 1px 10px 1px aqua;
+
+}
+.alert {
+    margin-top: 12px;
+    text-transform: capitalize;
+    letter-spacing: 2.5px;
+    
+}
+.alert-success {
+    color: rgb(145, 243, 145);
+}
+.alert-danger {
+    color: rgb(241, 116, 116);
+}
+section .title h3 {
+    color: rgb(6, 50, 81);
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-size: 20px;
+    
+}
+.form {
+    width: 70%;
+}
+.form-control {
+    background-color: rgb(241, 245, 248);
+    border: none;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+
+.form #input {
+    background-color: rgb(241, 245, 248);
+    color: rgb(143, 149, 155);
+    border-top-left-radius:  12px;
+    border-bottom-left-radius: 12px;
+    border: none;
+    padding: 12px;
+    height: 35px;
+    width: 100%;
+    
+}
+.form #input:focus {
+    border: none;
+}
+
+.form .btn {
+    text-transform: capitalize;
+    color: rgb(6, 50, 81);
+    background-color: rgb(165, 213, 248);
+    border: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    height: 36px;
+    padding: 12px;
+    letter-spacing: 2px;
+}
+
+.form .btn:hover {
+    color: white;
+    background-color: rgb(73, 166, 233);
+    transition: all 300ms linear;
+    cursor: pointer;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    visibility: hidden;
+    
+}
+.show-list {
+    visibility: visible;
+}
+.article {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 12px;
+    width: 100%;
+}
+.article p {
+    text-transform: capitalize;
+}
+
+
+.article:hover{
+    background-color: rgb(241, 245, 248);
+    transition: all 250ms linear;
+}
+.clear-items {
+    align-self: center;
+    margin-top: 16px;
+    visibility: hidden;
+}
+.clear-items-visible {
+    visibility: visible;
+}
+.clear-items-btn {
+    color: rgb(202, 37, 37);
+    opacity: 0.7;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    border: none;
+    background-color: white;
+}
+.clear-items-btn:hover {
+    opacity: 1;
+    cursor: pointer;
+    font-size: 24px;
+}
+.edit-btn {
+    
+    color: rgb(37, 187, 50);
+    border: none;
+    opacity: 0.5;
+}
+.edit-btn:hover {
+    opacity: 1.5;
+    transition: all 250ms ease-in-out;
+}
+.delete-btn {
+    color: rgb(187, 37, 37);
+    border: none;
+    margin-left: 12px;
+    opacity: 0.5;
+}
+.delete-btn:hover {
+    opacity: 1.5;
+    transition: all 250ms ease-in-out;
+    
+}
+ .btn-container i:hover{
+    
+    font-size: 24px;
+    transition: all 325ms linear;
+}
